@@ -11,7 +11,7 @@ submit.addEventListener("submit", function(e){
     else{
         erreur.style.display = "none";
     }
-    prenom.addEventListener("change", function{
+    prenom.addEventListener("change", function(){
         if(prenom.value.trim() == ""){
             let erreur = document.getElementById("erreur");
             erreur.innerHTML = "Entrer un prenom";
@@ -21,7 +21,7 @@ submit.addEventListener("submit", function(e){
         else{
             erreur.style.display = "none";
         }
-    });
+    })
 
     let nom = document.getElementById("nom");
     if(nom.value.trim() == ""){
