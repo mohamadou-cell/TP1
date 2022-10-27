@@ -9,19 +9,8 @@ submit.addEventListener("submit", function(e){
         e.preventDefault();
     }
     else{
-        erreur.style.display = "none";
+        erreur.innerHTML = "";
     }
-    prenom.addEventListener("change", function(){
-        if(prenom.value.trim() == ""){
-            let erreur = document.getElementById("erreur");
-            erreur.innerHTML = "Entrer un prenom";
-            erreur.style.color = "red";
-            e.preventDefault();
-        }
-        else{
-            erreur.style.display = "none";
-        }
-    })
 
     let nom = document.getElementById("nom");
     if(nom.value.trim() == ""){
@@ -31,7 +20,7 @@ submit.addEventListener("submit", function(e){
         e.preventDefault();
     }
     else{
-        erreur1.style.display = "none";
+        erreur1.innerHTML = "";
     }
 
     let email = document.getElementById("email");
@@ -43,7 +32,7 @@ submit.addEventListener("submit", function(e){
         e.preventDefault();
     }
     else if(email.value.match(mailformat)){
-        erreur2.style.display = "none";
+        erreur2.innerHTML = "";
     }
     else{
         erreur2.innerHTML = "Email invalide";
@@ -58,7 +47,7 @@ submit.addEventListener("submit", function(e){
         e.preventDefault();
     }
     else{
-        erreur3.style.display = "none";
+        erreur3.innerHTML = "";
     }
 
     let mdp = document.getElementById("mdp");
@@ -69,7 +58,7 @@ submit.addEventListener("submit", function(e){
         e.preventDefault();
     }
     else{
-        erreur4.style.display = "none";
+        erreur4.innerHTML = "";
     }
 
     let cmdp = document.getElementById("cmdp");
@@ -79,12 +68,12 @@ submit.addEventListener("submit", function(e){
         erreur5.style.color = "red";
         e.preventDefault();
     }
-        else if(cmdp.value.trim() !== mdp.value.trim()){
-            erreur5.innerHTML = "Mot de passe non identique";
-            erreur5.style.color = "red";
-            e.preventDefault();
-        }
-        else if(cmdp.value.trim() === mdp.value.trim()){
-            erreur5.style.display = "none";
-        }  
+    else if(cmdp.value.trim() !== mdp.value.trim()){
+        erreur5.innerHTML = "Mots de passe non identiques";
+        erreur5.style.color = "red";
+        e.preventDefault();
+    }
+    else if(cmdp.value.trim() === mdp.value.trim()){
+        erreur5.innerHTML = "";
+    }  
 });

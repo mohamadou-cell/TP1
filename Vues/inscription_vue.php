@@ -19,29 +19,24 @@ include_once "../Controller/users.php";
         <div class="container d-flex justify-content-center align-items-center pt-5 pb-5" style="background-color: #0BF0FF;">       
             <form action="../Controller/users.php" method="post" class="container d-flex flex-column justify-content-center" id="submit">
                 <div class="container d-flex justify-content-center align-items-center">
-                <?php
-                        if(isset($_GET["email"])):
-                        $email = $_GET["email"];
-                        ?>
-                    <p class="d-flex text-white justify-content-center font-weight-bold text-uppercase fs-2 bg-danger align-items-center"> <?php echo $email;  ?> </p> 
-                    <?php endif; ?>
+                
                     <?php
                         if(isset($_GET["success"])):
                         $email = $_GET["success"];
                         ?>
-                    <p class="d-flex text-white justify-content-center font-weight-bold text-uppercase fs-2 bg-danger align-items-center"> <?php echo $email;  ?> </p> 
+                    <p class="d-flex text-white justify-content-center font-weight-bold text-uppercase fs-2 bg-danger align-items-center p-2"> <?php echo $email;  ?> </p> 
                     <?php endif; ?>
                     <?php
                         if(isset($_GET["unsuccess"])):
                         $email = $_GET["unsuccess"];
                         ?>
-                    <p class="d-flex text-white justify-content-center font-weight-bold text-uppercase fs-2 bg-danger align-items-center"> <?php echo $email;  ?> </p> 
+                    <p class="d-flex text-white justify-content-center font-weight-bold text-uppercase fs-2 bg-danger align-items-center p-2"> <?php echo $email;  ?> </p> 
                     <?php endif; ?>
                     <?php
                         if(isset($_GET["mdp"])):
                         $email = $_GET["mdp"];
                         ?>
-                    <p class="d-flex text-white justify-content-center font-weight-bold text-uppercase fs-2 bg-danger align-items-center"> <?php echo $email;  ?> </p> 
+                    <p class="d-flex text-white justify-content-center font-weight-bold text-uppercase fs-2 bg-danger align-items-center p-2"> <?php echo $email;  ?> </p> 
                     <?php endif; ?>
             
                 </div>

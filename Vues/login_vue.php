@@ -20,13 +20,13 @@ include_once "../Controller/login.php";
                         if(isset($_GET["email"])):
                         $email = $_GET["email"];
                         ?>
-                    <p class="d-flex text-white justify-content-center font-weight-bold text-uppercase fs-2 bg-danger align-items-center"> <?php echo $email;  ?> </p> 
+                    <p class="d-flex text-white justify-content-center font-weight-bold text-uppercase fs-2 bg-danger align-items-center p-2"> <?php echo $email;  ?> </p> 
                     <?php endif; ?>
                 <form action="../Controller/login.php" method="post" class="d-flex align-items-center" id="connect">
                     <div class="d-flex flex-column justify-content-center">
                         <div class="form-floating mb-4 col-lg-12 ">
-                            <label for="user">Nom d'utilisateur</label>
-                            <input type="email" class="form-control" name="user" id="user" placeholder="name@example.com">
+                            <label for="user">Email</label>
+                            <input type="text" class="form-control" name="user" id="user" placeholder="name@example.com">
                             <span id="erreur"></span>          
                         </div>
                         <div class="form-floating mb-4 col-lg-12">

@@ -22,17 +22,17 @@ session_start();
             include('connection.php');
             
             try{
-            $sth = $dbco->prepare(" SELECT * FROM utilisateurs WHERE email = '".$user."'"); 
-            $sth->execute();
-            $res = $sth->fetchAll(PDO::FETCH_ASSOC); 
-            if(count($res) == 1 && password_verify($pass, $res["mot_de_passe"])){        
-                if($res["roles"] == "Admin"){
-                    header("Location:accueil_admin.php");
+                $sth = $dbco->prepare(" SELECT * FROM utilisateurs WHERE email = '".$user."'"); 
+                $sth->execute();
+                $res = $sth->fetch(PDO::FETCH_ASSOC); 
+                if(count($res) > 0 && password_verify($pass, $res["mot_de_passe"]) && $res["roles"] == "Admin"){        
+                    
+                    header("Location: ../Vues/accueil_admin.php");
                 }
-                elseif($res["roles"] == "User"){
-                    header("Location:accueil_user.php");
+                elseif(count($res) > 0 && password_verify($pass, $res["mot_de_passe"]) && $res["roles"] == "User"){
+                    header("Location: ../Vues/accueil_user.php");
                 }
-                }
+                    
                 else{
                     header("Location: ../Vues/login_vue.php?email=Compte inéxistant, inscrivez-vous !");
                 }
