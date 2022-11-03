@@ -35,7 +35,7 @@ include_once "../Controller/login.php";
                             <span id="erreur1"></span>  
                         </div>
                         <div class="form-floating mb-3 col-lg-12 d-flex justify-content-center">
-                            <a href="" class="font-weight-regular">Inscription ?</a>
+                            <a href="inscription_vue.php" class="font-weight-regular">Inscription ?</a>
                         </div>
                         <div class="mb-3 col-lg-12 d-flex justify-content-center">
                             <input type="submit" class="btn btn-primary mb-3 font-weight-bold" name="verif" value="SE CONNECTER">   

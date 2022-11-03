@@ -8,7 +8,8 @@ error_reporting(E_ALL);
     @$role = $_POST["role"];
     @$mdp = $_POST["mdp"];
     @$cmdp = $_POST["cmdp"];
-    @$photo = $_POST["photo"];
+    @$photo = file_get_contents($_FILES["photo"]["tmp_name"]);
+    
     if(isset($_POST["valider"])){
    
         $masque = '/^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/';
@@ -25,7 +26,15 @@ error_reporting(E_ALL);
                 
                       
          if(isset($_POST["prenom"]) && !empty($_POST["prenom"]) && isset($_POST["nom"]) && !empty($_POST["email"]) && isset($_POST["email"]) && !empty($_POST["email"]) && 
-            isset($_POST["role"]) && !empty($_POST["role"]) && isset($_POST["mdp"]) && !empty($_POST["mdp"]) && isset($_POST["cmdp"]) && !empty($_POST["cmdp"]) && isset($_POST["photo"])){
+            isset($_POST["role"]) && !empty($_POST["role"]) && isset($_POST["mdp"]) && !empty($_POST["mdp"]) && isset($_POST["cmdp"]) && !empty($_POST["cmdp"]) && isset($_FILES["photo"])){
+                $extension = strtolower(pathinfo($photo, PATHINFO_EXTENSION));
+                $valide = array('jpg', 'png', 'webp');
+
+                if (in_array($extension, $valide))
+                { 
+                echo "extension valide";
+                }
+                else echo "extension non valide";
             include("connection.php");
             $sth = $dbco->prepare(" SELECT * FROM utilisateurs WHERE email = '".$email."'"); 
             $sth->execute();
@@ -48,6 +57,7 @@ error_reporting(E_ALL);
                 $sth->execute();
     
                 header("Location: ../Vues/inscription_vue.php?success=Inscription réussie");
+        
                 $sql = "SELECT id FROM utilisateurs WHERE email = '".$email."'";
                 $id = $dbco->prepare($sql);
                 $id->execute();

@@ -54,12 +54,12 @@
   <main>
   <div class="container-fluid d-flex justify-content-center mt-5 mb-5">
     <div class="d-flex w-25 border border-dark">
-      <a href="accueil_admin.php" class="w-50"><button class="btn btn-dark w-100 font-weight-bold">USERS</button></a>
-      <a href="archives_admin.php" class="w-50"><button class="btn btn-light w-100 font-weight-bold"  style="color: black;">ARCHIVES</button></a>
+      <a href="accueil_user.php" class="w-50"><button class="btn btn-light w-100 font-weight-bold" style="color: black;">USERS</button></a>
+      <a href="archives_user.php" class="w-50"><button class="btn btn-dark w-100 font-weight-bold">ARCHIVES</button></a>
     </div>
   </div>
   <div class="container-fluid mb-3 mt-5 d-flex justify-content-end align-items-center">
-            <form action="recherche.php" method="post">
+            <form action="search_archive_user.php" method="post">
               <div class="d-flex justify-content-center align-items-center">
                 <input type="text" name="nom" placeholder="Entrer prenom ou nom" class="form-control col-lg-9" >
                 <button type="submit" class="btn btn-primary" name="boutton"><i class="bi bi-search"></i></a>
@@ -72,7 +72,7 @@
         </button> -->
 
         <!-- Modal -->
-        <!-- <div class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+       <!--  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
@@ -93,21 +93,7 @@
             </div>
           </div>
         </div> -->
-        <div id="mod" class="d-flex justify-content-center mb-3">
-        <?php
-            include_once "../Controller/admin.php";
-            popup();
       
-          ?>
-        </div>
-        <div id="reussie">
-          <?php
-            if(isset($_GET["email"])):
-            $email = $_GET["email"];
-          ?>
-          <p id="success" class="d-flex text-black justify-content-center font-weight-bold text-uppercase fs-2 bg-warning align-items-center p-2"> <?php echo $email;  ?> </p> 
-          <?php endif; ?>
-        </div>
 <table class="container-fluid table table-bordered">
   <thead>
     <tr>
@@ -116,17 +102,15 @@
       <th scope="col" class="col-lg-2">EMAIL</th>
       <th scope="col" class="col-lg-2">MATRICULE</th>
       <th scope="col" class="col-lg-2">ROLE</th>
-      <th scope="col" class="col-lg-2">ACTIONS</th>
+    
     </tr>
   </thead>
   <tbody>
         <?php
-            include_once "../Controller/admin.php";
+            include_once "../Controller/user_simple.php";
           
-            afficher();
-            archiver();
-            switcher();
-            modifier();
+            afficher1();
+            
         ?>
     <tbody>
 </table>
